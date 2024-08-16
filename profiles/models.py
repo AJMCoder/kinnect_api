@@ -9,7 +9,7 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
-    image = models.ImageField(upload_to='images/', default='../https://res.cloudinary.com/dxfpqnmtu/image/upload/v1723028139/blank_profile_image_mlzrkw.webp')
+    image = models.ImageField(upload_to='images/', default='../blank_profile_image_mlzrkw')
 
     class Meta:
         ordering = ['-created_at']
