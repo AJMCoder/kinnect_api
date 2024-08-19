@@ -3,6 +3,7 @@ from rest_framework import generics, filters
 from .models import Profile
 from .serializers import ProfileSerializer
 from kinnect_api.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 class ProfileList(generics.ListCreateAPIView):
     queryset = Profile.objects.annotate(
@@ -10,7 +11,9 @@ class ProfileList(generics.ListCreateAPIView):
         following_count=Count('owner__following', distinct=True),
         posts_count=Count('owner__post', distinct=True)).order_by('-created_at')
     serializer_class = ProfileSerializer
-    filter_backends = [filters.SearchFilter]
+    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
+    filterset_fields = ['owner__following__followed__profile',]
+
     ordering_fields = [
         'followers_count',
         'following_count',
