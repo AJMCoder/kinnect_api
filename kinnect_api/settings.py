@@ -61,7 +61,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    'kinnect-api.herokuapp.com',
+    'kinnect-api-cf0f665319fa.herokuapp.com',
     'localhost',
 ]
 
