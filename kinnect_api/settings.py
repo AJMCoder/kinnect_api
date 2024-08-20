@@ -64,7 +64,7 @@ ALLOWED_HOSTS = [
     #os.environ.get('ALLOWED_HOST'),
     'localhost',
     'postgres://uyqcbasngez:x4oal4FfHcKl@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/arson_whoop_stain_319953',
-    'kinnect_api.herokuapp.com'
+    'kinnect-api-cf0f665319fa.herokuapp.com',
 ]
 
 
