@@ -55,12 +55,17 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sun_1e268-nkw^l@isyq@!h$txlfwu4r_x=y817_rz)*)^yk*o'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    #os.environ.get('ALLOWED_HOST'),
+    'localhost',
+    'postgres://uyqcbasngez:x4oal4FfHcKl@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/arson_whoop_stain_319953',
+    'https://kinnect-api.herokuapp.com/'
+]
 
 
 # Application definition
@@ -88,9 +93,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'dj_rest_auth.registration',
+    'corsheaders',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -99,6 +107,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGINS_REGEXES = [
+        r'^http://localhost:\d+$',
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'kinnect_api.urls'
 
