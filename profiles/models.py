@@ -10,6 +10,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', default='../blank_profile_image_mlzrkw')
+    rating = models.FloatField(default=0)
 
     class Meta:
         ordering = ['-created_at']
