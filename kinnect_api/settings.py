@@ -61,10 +61,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    #os.environ.get('ALLOWED_HOST'),
+    os.environ.get('ALLOWED_HOST', 'kinnect-api-cf0f665319fa.herokuapp.com'),
     'localhost',
-    'postgres://uyqcbasngez:x4oal4FfHcKl@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/arson_whoop_stain_319953',
-    'kinnect-api-cf0f665319fa.herokuapp.com',
 ]
 
 
