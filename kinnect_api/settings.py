@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from corsheaders.defaults import default_headers
 import re
 
 if os.path.exists('env.py'):
@@ -125,8 +126,12 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         # Handle the case where the regex does not match
         extracted_url = ''  # or handle the error appropriately
 
-
+CORD_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'Access-Control-Allow-Origin',
+    'Access-Control-Allow-Headers',
+]
 CORS_TRUSTED_ORIGINS = [os.environ.get('CLIENT_ORIGIN', 'CLIENT_ORIGIN_DEV')]
 
 ROOT_URLCONF = 'kinnect_api.urls'
