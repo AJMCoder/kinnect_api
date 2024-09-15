@@ -125,7 +125,9 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         # Handle the case where the regex does not match
         extracted_url = ''  # or handle the error appropriately
 
+
 CORS_ALLOW_CREDENTIALS = True
+CORS_TRUSTED_ORIGINS = [os.environ.get('CLIENT_ORIGIN', 'CLIENT_ORIGIN_DEV')]
 
 ROOT_URLCONF = 'kinnect_api.urls'
 
