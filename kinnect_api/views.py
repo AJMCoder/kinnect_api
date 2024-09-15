@@ -10,6 +10,12 @@ def root_route(request):
         "message": "Welcome to Kinnect API"
     })
 
+@csrf_exempt
+def register(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        return JsonResponse({"message": "User registered successfully"}, status=201)    
+
 # dj-rest-auth logout view fix
 # code from Code Institute's Django REST framework walkthrough
 
