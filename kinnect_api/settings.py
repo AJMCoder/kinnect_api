@@ -126,7 +126,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         # Handle the case where the regex does not match
         extracted_url = ''  # or handle the error appropriately
 
-CORD_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'Access-Control-Allow-Origin',
