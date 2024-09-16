@@ -37,7 +37,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', 'PAGE_SIZE': 10, 'DATETIME_FORMAT': '%d-%m-%Y %S:%M:%H',
 }
 
-if 'DEV' in os.environ:
+if 'DEV' not in os.environ:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
         'rest_framework.renderers.JSONRenderer',
     ]
@@ -118,7 +118,7 @@ CORS_ALLOWED_ORIGIN_REGEXES = []
 
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS.append(os.environ.get('CLIENT_ORIGIN'))
-    
+
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     client_origin_dev = os.environ.get('CLIENT_ORIGIN_DEV', '')
     match = re.match(r'^.+-', client_origin_dev, re.IGNORECASE)
