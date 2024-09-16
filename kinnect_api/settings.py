@@ -110,7 +110,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    os.environ.get('CLIENT_ORIGIN'),
+]
 CORS_ALLOWED_ORIGIN_REGEXES = []
 
 if 'CLIENT_ORIGIN' in os.environ:
@@ -134,7 +137,12 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'Access-Control-Allow-Origin',
     'Access-Control-Allow-Headers',
 ]
-CORS_TRUSTED_ORIGINS = [os.environ.get('CLIENT_ORIGIN', 'CLIENT_ORIGIN_DEV')]
+
+CORS_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    os.environ.get('CLIENT_ORIGIN', ''),
+    os.environ.get('CLIENT_ORIGIN_DEV', '')
+]
 
 ROOT_URLCONF = 'kinnect_api.urls'
 
