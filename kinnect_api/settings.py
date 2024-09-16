@@ -122,9 +122,9 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     match = re.match(r'^.+-', client_origin_dev, re.IGNORECASE)
     if match:
         extracted_url = match.group(0)
-        CORS_ALLOWED_ORIGIN_REGEXES = [
-            rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-        ]
+        CORS_ALLOWED_ORIGIN_REGEXES.append(
+            rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$"
+        )
     else:
         # Handle the case where the regex does not match
         extracted_url = ''  # or handle the error appropriately
