@@ -117,9 +117,8 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOWED_ORIGIN_REGEXES = []
 
 if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
+    CORS_ALLOWED_ORIGINS.append(os.environ.get('CLIENT_ORIGIN'))
+    
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     client_origin_dev = os.environ.get('CLIENT_ORIGIN_DEV', '')
     match = re.match(r'^.+-', client_origin_dev, re.IGNORECASE)
