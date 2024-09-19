@@ -114,6 +114,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     os.environ.get('CLIENT_ORIGIN'),
 ]
+
+CORS_ALLOW_ALL_ORIGINS = TRUE 
+
 CORS_ALLOWED_ORIGIN_REGEXES = []
 
 if 'CLIENT_ORIGIN' in os.environ:
@@ -135,6 +138,9 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'Access-Control-Allow-Origin',
     'Access-Control-Allow-Headers',
+    'Content-Type',
+    'Authorization',
+    'X-CSRFToken',
 ]
 
 CORS_TRUSTED_ORIGINS = [
