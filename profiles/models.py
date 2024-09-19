@@ -9,7 +9,7 @@ class Profile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
-    image = models.ImageField(upload_to='images/', default='https://res-console.cloudinary.com/dxfpqnmtu/thumbnails/v1/image/upload/v1723028139/YmxhbmtfcHJvZmlsZV9pbWFnZV9tbHpya3c=/drilldown')
+    image = models.ImageField(upload_to='images/', default='../blank_profile_image_mlzrkw')
     rating = models.FloatField(default=0)
 
     class Meta:
