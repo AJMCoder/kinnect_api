@@ -110,6 +110,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'), 'localhost', 'kinnectsocial-98b2a3f8410d.herokuapp.com'
+]
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     os.environ.get('CLIENT_ORIGIN'),
