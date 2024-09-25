@@ -44,6 +44,7 @@ if 'DEV' not in os.environ:
 
 import os
 import re
+from datetime import timedelta
 
 # JWT Settings
 REST_USE_JWT = True
