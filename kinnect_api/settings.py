@@ -64,10 +64,12 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'Dev' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'), 'localhost',
+    os.environ.get('ALLOWED_HOST'), 'localhost', 
+    '8000-ajmcoder-kinnectapi-91u8eacawim.ws.codeinstitute-ide.net',
+    '8000-ajmcoder-kinnectapi-91u8eacawim.ws.codeinstitute-ide.net'
 ]
 
 # Application definition
@@ -144,6 +146,8 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'), 'localhost', 'kinnectsocial-98b2a3f8410d.herokuapp.com'
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-ajmcoder-kinnectapi-91u8eacawim.ws.codeinstitute-ide.net']
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     os.environ.get('CLIENT_ORIGIN'),
@@ -154,20 +158,29 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGIN_REGEXES = []
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS.append(os.environ.get('CLIENT_ORIGIN'))
+# if 'CLIENT_ORIGIN' in os.environ:
+#     CORS_ALLOWED_ORIGINS.append(os.environ.get('CLIENT_ORIGIN'))
 
+# if 'CLIENT_ORIGIN_DEV' in os.environ:
+#     client_origin_dev = os.environ.get('CLIENT_ORIGIN_DEV', '')
+#     match = re.match(r'^.+-', client_origin_dev, re.IGNORECASE)
+#     if match:
+#         extracted_url = match.group(0)
+#         CORS_ALLOWED_ORIGIN_REGEXES.append(
+#             rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$"
+#         )
+#     else:
+#         # Handle the case where the regex does not match
+#         extracted_url = ''  # or handle the error appropriately
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+     ]
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    client_origin_dev = os.environ.get('CLIENT_ORIGIN_DEV', '')
-    match = re.match(r'^.+-', client_origin_dev, re.IGNORECASE)
-    if match:
-        extracted_url = match.group(0)
-        CORS_ALLOWED_ORIGIN_REGEXES.append(
-            rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$"
-        )
-    else:
-        # Handle the case where the regex does not match
-        extracted_url = ''  # or handle the error appropriately
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        os.environ.get('CLIENT_ORIGIN_DEV', ''),
+    ]
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
