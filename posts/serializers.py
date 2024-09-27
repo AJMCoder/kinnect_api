@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
+from django.utils.timezone import localtime
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -11,6 +12,10 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+
+    # Add formatted created and updated date fields
+    formatted_created_at = serializers.SerializerMethodField()
+    formatted_updated_at = serializers.SerializerMethodField()
 
     def validate_images(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -31,10 +36,20 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    # Format created_at
+    def get_formatted_created_at(self, obj):
+        return localtime(obj.created_at).strftime('%d %B %Y')
+
+    # Format updated_at
+    def get_formatted_updated_at(self, obj):
+        return localtime(obj.updated_at).strftime('%d %B %Y')
+
     class Meta:
         model = Post
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
+            'formatted_created_at', 'formatted_updated_at',
             'title', 'content', 'image', 'image_filter',
-            'like_id', 'likes_count', 'comments_count']
+            'like_id', 'likes_count', 'comments_count'
+        ]
