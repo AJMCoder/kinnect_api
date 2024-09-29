@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'ratings',
+    'notifications',
     'rest_framework',
     'django_filters',
     'rest_framework.authtoken',

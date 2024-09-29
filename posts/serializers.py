@@ -13,7 +13,7 @@ class PostSerializer(serializers.ModelSerializer):
     likes_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
 
-    # Add formatted created and updated date fields
+    # Added formatted created and updated date fields
     formatted_created_at = serializers.SerializerMethodField()
     formatted_updated_at = serializers.SerializerMethodField()
 
