@@ -67,7 +67,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'), 'localhost', 
+    os.environ.get('ALLOWED_HOST'), 'localhost', '127.0.0.1',
     '8000-ajmcoder-kinnectapi-91u8eacawim.ws.codeinstitute-ide.net',
     '8000-ajmcoder-kinnectapi-91u8eacawim.ws.codeinstitute-ide.net'
 ]
@@ -144,7 +144,7 @@ SIMPLE_JWT = {
 }
 
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST'), 'localhost', 'kinnectsocial-98b2a3f8410d.herokuapp.com'
+    os.environ.get('ALLOWED_HOST'), 'localhost', '127.0.0.1', 'kinnectsocial-98b2a3f8410d.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-ajmcoder-kinnectapi-91u8eacawim.ws.codeinstitute-ide.net']

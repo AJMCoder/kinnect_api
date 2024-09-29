@@ -22,3 +22,12 @@ class NotificationDetail(generics.RetrieveUpdateAPIView):
     def perform_update(self, serializer):
         # When updating, mark the notification as read
         serializer.save(is_read=True)
+
+
+class NotificationDelete(generics.DestroyAPIView):
+    queryset = Notification.objects.all()
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        # Users can only delete their own notifications
+        return Notification.objects.filter(owner=self.request.user)
