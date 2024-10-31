@@ -6,18 +6,20 @@ Kinnect is a place where people alike can come together to share their love of g
 
 This is the Backend database which was built and designed using Django Rest Frameworks.
 
-- The deployed version of the API is [HERE](`yet to add`).
-- The deployed version of the full site built in React is [HERE](`yet to add`).
-- The frontend repository is [HERE](`yet to add`).
+- The deployed version of the API is [HERE](https://kinnect-api-cf0f665319fa.herokuapp.com/).
+- The deployed version of the full site built in React is [HERE](https://kinnectsocial-98b2a3f8410d.herokuapp.com/).
+- The frontend repository is [HERE](https://github.com/AJMCoder/kinnect_social.git).
 
 ## User Stories
+
+Here is a link to the [User Stories](https://github.com/users/AJMCoder/projects/3).
 
 ### Admin
 
 **User Stories:**
 - As a **site admin** I can **add, edit, and delete profiles from the database** so that **users are safe from spammers or account hackers**
 - As a **site admin** I can **remove posts or comments if they are not appropriate or relevant** so that **the site is enjoyable and safe for all users**
-- As a **site admin** I can **see lists of all user profiles, posts, likes, and comments, followers and ratings** so that **I have an overview of all activity on the site**
+- As a **site admin** I can **see lists of all user profiles, posts, likes, and comments, followers** so that **I have an overview of all activity on the site**
 
 ### Profile Management
 
@@ -35,15 +37,13 @@ This is the Backend database which was built and designed using Django Rest Fram
 - As a **user** I can **delete my posts** so that **I can remove posts made in error, or that I don't want displayed on my profile anymore**
 - As a **user** I can **like and unlike other users' posts** so that **I can engage with content that I enjoy**
 
-### Ratings Management
+### Notifications System
 
 **User Stories:**
-- As a **user** I can **rate other users on their profiles** so that **express how i feel they are performing or quality of content**
-- As a **user** I can **view ratings of users profiles** so that **I can see how others are viewing them**
-- As a **user** I can **update my rating** so that **it it relevant depending on their recent posts and shares**
+- As a **user** I can **see if a user has liked or commented on my posts** so that **I can see how others are interacting with them**
 
 ## Testing 
-Manual and validator testing is documented in my [Testing file](`yet to add`).
+Manual and validator testing is documented in my [Testing file](/Testing.md).
 
 ## Deployment
 
@@ -129,9 +129,6 @@ For Heroku deployment, follow these steps to connect your GitHub repository to t
 Push this update to GitHub, and the project should now be deployed and live on Heroku.
 
 ## Credits 
-### Content 
-
-- I took inspiration from many guides on Youtube for the star rating system and how best to implement it. [This](https://www.youtube.com/watch?v=9sSBMF8K7sY) was the one i used most to base my model around loosely.
 
 ### Media
 
